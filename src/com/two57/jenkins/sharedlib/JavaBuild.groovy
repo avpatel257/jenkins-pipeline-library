@@ -1,7 +1,8 @@
 package com.two57.jenkins.sharedlib
 
 import groovy.transform.PackageScope
-import groovy.json.JsonSlurper
+import java.util.*
+import groovy.util.XmlParser
 
 class JavaBuild extends BaseBuild {
     private String agentName
@@ -97,5 +98,10 @@ class JavaBuild extends BaseBuild {
     private def getProjectVersion(){
         def project = new XmlSlurper().parseText(new File('pom.xml').getText('UTF-8'))
         return project.version.text()
+        def pom = new File('pom.xml').getText('utf-8')
+        def doc = new XmlParser().parseText(pom)
+        def version = doc.version.text()
+
+        version
     }
 }
