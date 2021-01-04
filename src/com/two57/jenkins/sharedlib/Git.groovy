@@ -39,7 +39,8 @@ class Git implements Serializable {
     }
 
     def createRelease(String tag) {
-        script.sh(returnStdout: true, script: "git tag " + tag)
+        script.sh(returnStdout: false, script: "git tag " + tag)
+        script.sh(returnStdout: false, script: "git push origin " + tag)
     }
 
 }
