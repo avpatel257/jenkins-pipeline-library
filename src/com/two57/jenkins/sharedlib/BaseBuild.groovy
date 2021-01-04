@@ -6,12 +6,14 @@ class BaseBuild {
     protected final def script
     protected final String projectName
     protected final String branchName
+    protected final Git git
     protected String agentName
 
     BaseBuild(script, String projectName, String branchName) {
         this.script = script
         this.projectName = projectName
         this.branchName = branchName
+        this.git = new Git(script)
     }
 
     BaseBuild withAgent(String agent) {
@@ -60,5 +62,9 @@ class BaseBuild {
             closure.call()
         }
 
+    }
+    @PackageScope
+    def log(message) {
+        script.println(message)
     }
 }

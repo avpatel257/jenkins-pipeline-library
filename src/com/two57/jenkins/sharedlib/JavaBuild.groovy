@@ -38,6 +38,19 @@ class JavaBuild extends BaseBuild {
                             mavenBuild()
                         }
                     }
+//                    stage('Build Docker'){
+//
+//                    }
+                    if(git.isMasterBranch()) {
+                        log("Branch == Master")
+                    } else {
+                        log("Branch is not master")
+                    }
+//                    if(branchName == 'master' || branchName == 'main') {
+//                        stage('Docker Push') {
+//
+//                        }
+//                    }
                 } finally {
                     script.chuckNorris()
                 }
@@ -65,6 +78,11 @@ class JavaBuild extends BaseBuild {
 
             }
         }
+    }
+
+    @PackageScope
+    def dockerBuild() {
+        script.docker
     }
 
     @PackageScope

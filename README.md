@@ -9,6 +9,7 @@ In order to use this library you need to install on your Jenkins the following p
 * [Pipeline Maven Integration](https://plugins.jenkins.io/pipeline-maven/)
 * [NodeJS](https://plugins.jenkins.io/nodejs/) (with @angular/cli globally installed)
 * [Chucknorris](https://plugins.jenkins.io/chucknorris/)
+* [Docker Pipeline](https://plugins.jenkins.io/docker-workflow/)
 
 
 
