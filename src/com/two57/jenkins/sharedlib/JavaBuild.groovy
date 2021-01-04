@@ -1,6 +1,7 @@
 package com.two57.jenkins.sharedlib
 
 import groovy.transform.PackageScope
+import groovy.json.JsonSlurper
 
 class JavaBuild extends BaseBuild {
     private String agentName
@@ -44,7 +45,7 @@ class JavaBuild extends BaseBuild {
                     if(git.isMasterBranch()) {
                         log("Branch == Master")
                     } else {
-                        log("Branch is not master: " + script.env)
+                        log("Branch is not master: " + git.currentBranchName() + " - " + getProjectVersion())
                     }
                     log("Commit Hash: " + git.commitHash() + " - " + git.commitAuthor())
 //                    if(branchName == 'master' || branchName == 'main') {
@@ -91,5 +92,11 @@ class JavaBuild extends BaseBuild {
         if (jdkVersion) {
             script.tool(type: 'jdk', name: jdkVersion)
         }
+    }
+
+    private def getProjectVersion(){
+        def file = readFile('pom.xml')
+        def project = new XmlSlurper().parseText(file)
+        return project.version.text()
     }
 }
