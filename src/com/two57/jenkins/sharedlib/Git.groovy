@@ -33,4 +33,13 @@ class Git implements Serializable {
         script.scm.branches[0].name == 'master'
     }
 
+
+    String getGitTag() {
+        return script.sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+    }
+
+    def createRelease(String tag) {
+        script.sh(returnStdout: true, script: "git tag " + tag)
+    }
+
 }
