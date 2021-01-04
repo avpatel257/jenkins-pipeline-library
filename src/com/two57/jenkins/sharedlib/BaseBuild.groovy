@@ -65,6 +65,6 @@ class BaseBuild {
     }
     @PackageScope
     def log(message) {
-        echo message
+        println(message)
     }
 }
