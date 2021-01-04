@@ -48,7 +48,13 @@ class JavaBuild extends BaseBuild {
                         log("Branch == Master")
                     } else {
                         log("Branch is not master: " + git.currentBranchName() )
-                        script.sh 'printenv'
+                        stage('Non Master') {
+                            steps {
+                                script {
+                                    sh 'ls -la'
+                                }
+                            }
+                        }
                     }
                     log("Commit Hash: " + git.commitHash() + " - " + git.commitAuthor())
 //                    if(branchName == 'master' || branchName == 'main') {
