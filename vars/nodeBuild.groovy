@@ -1,7 +1,7 @@
-import com.two57.jenkins.sharedlib.JenkinsBuilder
+import com.two57.jenkins.sharedlib.NodeJSBuild
 
-JenkinsBuilder call(def scriptReference, String projectName) {
-    return new JenkinsBuilder(scriptReference,projectName,env['BRANCH_NAME'])
+NodeJSBuild call(def scriptReference, String projectName) {
+    return new NodeJSBuild(scriptReference, projectName, env['BRANCH_NAME'])
 }
 
 return this
