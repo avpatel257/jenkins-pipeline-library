@@ -30,7 +30,7 @@ class Git implements Serializable {
         //script.env.GIT_BRANCH
     }
     boolean isMasterBranch() {
-        script.env.BRANCH_NAME == 'master'
+        script.scm.branches[0].name == 'master'
     }
 
 }
