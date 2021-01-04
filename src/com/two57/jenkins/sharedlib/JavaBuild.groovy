@@ -2,7 +2,7 @@ package com.two57.jenkins.sharedlib
 
 import groovy.transform.PackageScope
 
-class JenkinsBuilder {
+class JavaBuild {
 
     private final script
     private final String projectName
@@ -12,7 +12,7 @@ class JenkinsBuilder {
     private String jdkVersion
     private String nodeVersion
 
-    JenkinsBuilder(def script, String projectName, String branchName) {
+    JavaBuild(def script, String projectName, String branchName) {
         this.script = script
         this.projectName = projectName
         this.branchName = branchName
