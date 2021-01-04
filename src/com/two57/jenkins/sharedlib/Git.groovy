@@ -26,7 +26,7 @@ class Git implements Serializable {
     }
 
     String currentBranchName() {
-        return scm.branches[0].name
+        return script.scm.branches[0].name
         //script.env.GIT_BRANCH
     }
     boolean isMasterBranch() {
