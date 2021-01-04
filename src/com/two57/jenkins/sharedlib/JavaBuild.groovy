@@ -95,8 +95,7 @@ class JavaBuild extends BaseBuild {
     }
 
     private def getProjectVersion(){
-        def file = readFile('pom.xml')
-        def project = new XmlSlurper().parseText(file)
+        def project = new XmlSlurper().parseText(new File('pom.xml').getText('UTF-8'))
         return project.version.text()
     }
 }
