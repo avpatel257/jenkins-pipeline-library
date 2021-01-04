@@ -7,6 +7,7 @@ class BaseBuild {
     protected final String projectName
     protected final String branchName
     protected final Git git
+    protected final ReleaseUtil releaseUtil
     protected String agentName
 
     BaseBuild(script, String projectName, String branchName) {
@@ -14,6 +15,7 @@ class BaseBuild {
         this.projectName = projectName
         this.branchName = branchName
         this.git = new Git(script)
+        this.releaseUtil = new ReleaseUtil(script)
     }
 
     BaseBuild withAgent(String agent) {
