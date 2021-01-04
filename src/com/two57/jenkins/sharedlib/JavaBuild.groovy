@@ -31,6 +31,7 @@ class JavaBuild extends BaseBuild {
                     maven()
                     jdk()
                     stage('Checkout') {
+
                         ansiColor {
                             checkout()
                         }
