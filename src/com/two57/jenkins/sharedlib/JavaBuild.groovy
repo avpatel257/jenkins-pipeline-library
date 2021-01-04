@@ -44,7 +44,7 @@ class JavaBuild extends BaseBuild {
                     if(git.isMasterBranch()) {
                         log("Branch == Master")
                     } else {
-                        log("Branch is not master: " + branchName)
+                        log("Branch is not master: " + git.currentBranchName())
                     }
 //                    if(branchName == 'master' || branchName == 'main') {
 //                        stage('Docker Push') {
